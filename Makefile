@@ -1,5 +1,7 @@
 CXXFLAGS=-g -std=c++11 -Wall -Wshadow -Wconversion -pedantic -I .
 
+all: clean test
+
 test: test.cpp prefix.o postfix.o
 	${CXX} ${CXXFLAGS} -o $@ $^ -lgtest -lgtest_main -lpthread
 

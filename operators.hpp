@@ -38,7 +38,7 @@ inline float doOperator(char op, float v1, float v2){
             throw std::invalid_argument("op");
     }
 }
-
+// 7.5Shaan
 inline float readFloat(char const* const readHead, char const** newReadHead){
     char* readAhead = NULL;
     float const f = std::strtof(readHead,&readAhead);

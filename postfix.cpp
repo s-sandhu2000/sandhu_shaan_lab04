@@ -5,6 +5,13 @@
 #include <cmath>
 
 float evalPostfix(char const* s){
+    /*
+    Exceptions would be thrown if:
+    Token cannot be identified
+    There are less than two operands on the stack when an operator is encountered
+    The stack does not have exactly one operator left on it by the end of the loop 
+
+    */
     // Trim incoming whitespace
     while(std::isspace(*s)) ++s;
 
@@ -15,11 +22,20 @@ float evalPostfix(char const* s){
     std::stack<float> vals;
 
     // Loop over the input string
-    while(*s != '\0'){
-        // TODO: What else goes in this loop?
+    while(*s != '\0'){ //If the leading element in the char string is an operator 
+       if(isOperator(str[0]))
+       {
+           float right = vals.top();
+           vals.pop();
+           float left = vals.top();
+           vals.pop();
+           float result = doOperator(str[0], left, right);
+           vals.push(result);
+       }
+       else{
+           if()
+       }
         
-        // Read an operand
-        vals.push(readFloat(s,&s));
 
         // TODO: Don't just break out of the loop.
         break;
